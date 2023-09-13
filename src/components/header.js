@@ -24,6 +24,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import ViewListIcon from '@mui/icons-material/ViewList';
+import { auth } from '../config/firebase/firebase';
 
 const Header = () => {
   const [gridView, setGridView] = useState(false);
@@ -69,7 +70,7 @@ const Header = () => {
             <Hidden mdDown>
               <Button variant='inherit'>Top Headlines</Button>
               <Button variant='inherit'>Favorites</Button>
-              <Button variant='inherit'>Country</Button>
+              {/* <Button variant='inherit'>Country</Button> */}
             </Hidden>
 
             <Hidden mdUp>
@@ -79,9 +80,9 @@ const Header = () => {
               <IconButton size='large'>
                 <FavoriteBorderIcon />
               </IconButton>
-              <IconButton size='large'>
+              {/* <IconButton size='large'>
                 <TravelExploreIcon />
-              </IconButton>
+              </IconButton> */}
             </Hidden>
           </Box>
 
@@ -100,19 +101,31 @@ const Header = () => {
                 startIcon={gridView ? <GridViewIcon /> : <ViewListIcon />}
                 onClick={handleCardsView}
               >
-                {gridView ? 'GRID' : 'LIST'} VIEW
+                {!gridView ? 'GRID' : 'LIST'} VIEW
               </Button>
-              <Button variant='inherit' startIcon={<AccountBoxIcon />}>
+              <Button
+                variant='inherit'
+                startIcon={<AccountBoxIcon />}
+                onClick={() => {
+                  auth.signOut();
+                }}
+              >
                 ACCOUNT
               </Button>
             </Hidden>
 
             <Hidden mdUp>
               <ThemeToggle darkMode={darkMode} onToggle={handleThemeToggle} />
-              <IconButton size='large'>
-                <GridViewIcon />
+              <IconButton size='large' onClick={handleCardsView}>
+                {!gridView ? <GridViewIcon /> : <ViewListIcon />}
               </IconButton>
-              <IconButton size='large' edge='end'>
+              <IconButton
+                size='large'
+                edge='end'
+                onClick={() => {
+                  auth.signOut();
+                }}
+              >
                 <AccountBoxIcon />
               </IconButton>
             </Hidden>

@@ -60,14 +60,11 @@ const NewsCardGrid = ({ article }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const handleArticleClick = () => {
-  //   dispatch(setArticleDetails({ title: article.title, details: article }));
-  //   navigate(`/article/${encodeURIComponent(article.title)}`);
-  // };
   const handleArticleClick = () => {
     dispatch(setArticleDetails({ title: article.title, details: article }));
     navigate(`/article/${encodeURIComponent(article.title)}`);
   };
+
   return (
     <Item>
       <Grid container spacing={2}>
