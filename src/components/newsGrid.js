@@ -1,9 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import NewsCardList from './newsCardList';
 import NewsCardGrid from './newsCardGrid';
 
-const NewsList = ({ news }) => {
+const NewsGrid = ({ news }) => {
   // Retrieving articles to populate cards
   const articles = news?.articles;
 
@@ -14,18 +13,19 @@ const NewsList = ({ news }) => {
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
-            sm: '1fr',
-            md: '1fr 1fr',
-            lg: '1fr 1fr',
+            sm: '1fr 1fr',
+            md: '1fr 1fr 1fr',
+            lg: '1fr 1fr 1fr 1fr',
+            xl: '1fr 1fr 1fr 1fr 1fr',
           },
         }}
       >
         {articles?.map((article) => (
-          <NewsCardList article={article} key={article.title} />
+          <NewsCardGrid article={article} key={article.title} />
         ))}
       </Box>
     </Box>
   );
 };
 
-export default NewsList;
+export default NewsGrid;

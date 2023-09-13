@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import FormatDate from '../utilities/formatDate';
 import Noimage from '../assets/images/No-Image.jpg';
 
-const NewsCard = ({ article }) => {
+const NewsCardList = ({ article }) => {
   // Item or Card Styles
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -95,4 +95,4 @@ const NewsCard = ({ article }) => {
   );
 };
 
-export default NewsCard;
+export default NewsCardList;

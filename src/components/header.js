@@ -13,14 +13,26 @@ import NewsLogo from '../assets/images/news-Logo.webp';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTheme, toggleTheme } from '../features/theme/themeSlice';
+import {
+  selectTheme,
+  toggleCardsView,
+  toggleTheme,
+} from '../features/theme/themeSlice';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import ViewListIcon from '@mui/icons-material/ViewList';
 
 const Header = () => {
+  const [gridView, setGridView] = useState(false);
+
+  const handleCardsView = () => {
+    setGridView(!gridView);
+    dispatch(toggleCardsView(gridView));
+  };
+
   const dispatch = useDispatch();
   const darkMode = useSelector(selectTheme);
 
@@ -83,8 +95,12 @@ const Header = () => {
               >
                 {!darkMode ? 'dark' : 'light'} MODE
               </Button>
-              <Button variant='inherit' startIcon={<GridViewIcon />}>
-                GRID VIEW
+              <Button
+                variant='inherit'
+                startIcon={gridView ? <GridViewIcon /> : <ViewListIcon />}
+                onClick={handleCardsView}
+              >
+                {gridView ? 'GRID' : 'LIST'} VIEW
               </Button>
               <Button variant='inherit' startIcon={<AccountBoxIcon />}>
                 ACCOUNT
