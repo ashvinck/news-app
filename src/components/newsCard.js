@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Box, CardMedia, Typography, Paper, Divider } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider';
 import FormatDate from '../utilities/formatDate';
 import Noimage from '../assets/images/No-Image.jpg';
 
@@ -18,11 +22,11 @@ const NewsCard = ({ article }) => {
   const ArticleDetails = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.secondary,
     ...theme.typography.subtitle2,
-    ':first-child': {
+    ':first-of-type': {
       marginRight: '10px',
       color: theme.palette.text.primary,
     },
-    ':last-child': {
+    ':last-of-type': {
       marginLeft: '10px',
     },
   }));

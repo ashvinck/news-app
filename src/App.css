@@ -1,1 +1,9 @@
-
+.logo-container{
+  display: inline-block;
+  background-color: #000;
+}
+.logo{
+object-fit: contain;
+height: 50px;
+width: 50px;
+}

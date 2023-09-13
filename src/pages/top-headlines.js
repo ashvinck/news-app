@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewsList from '../components/newsList';
-import axiosInstance from '../api/axiosInstance';
+import axiosInstance from '../config/api/axiosInstance';
 
 const TopHeadlines = () => {
   const [getNews, setGetNews] = useState([]);
