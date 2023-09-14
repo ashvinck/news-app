@@ -17,7 +17,6 @@ import {
   collection,
   addDoc,
   deleteDoc,
-  doc,
   getDocs,
   query,
   where,
@@ -63,7 +62,6 @@ const ArticleDate = styled(Typography)(({ theme }) => ({
 const ArticleDetails = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
   ...theme.typography.subtitle2,
-  color: theme.palette.text.secondary,
   marginLeft: theme.spacing(2),
   width: 'fit-content',
   fontWeight: 'bold',

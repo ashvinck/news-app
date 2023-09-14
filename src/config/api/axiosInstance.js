@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
   params: {
-    apiKey: '4081b914b2834edbb2e3f7556fc0b20c',
+    apiKey: process.env.REACT_APP_NEWS_API_API_KEY,
   },
 });
 

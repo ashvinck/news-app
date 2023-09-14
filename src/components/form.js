@@ -11,6 +11,7 @@ import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import GoogleIcon from '@mui/icons-material/Google';
 import { auth, provider } from '../config/firebase/firebase';
@@ -196,6 +197,15 @@ const Form = () => {
           <Button variant='contained' fullWidth onClick={handleSignIn}>
             {loading ? 'Logging  In' : 'Login '}
           </Button>
+          <Divider sx={{ borderHeight: '5px' }} />
+          <Box>
+            <Typography>Sign in using</Typography>
+          </Box>
+          <Box>
+            <IconButton onClick={handleSignInWithGoogle}>
+              <GoogleIcon />
+            </IconButton>
+          </Box>
           {error !== '' && (
             <p style={{ color: 'red', fontSize: '14px' }}>{error}</p>
           )}
@@ -215,15 +225,6 @@ const Form = () => {
           {register ? 'Login' : 'New User? Register Here'}
         </Link>
       </Typography>
-
-      <Box>
-        <Typography>Sign in using</Typography>
-      </Box>
-      <Box>
-        <IconButton onClick={handleSignInWithGoogle}>
-          <GoogleIcon />
-        </IconButton>
-      </Box>
     </>
   );
 };

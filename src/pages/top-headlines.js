@@ -28,7 +28,9 @@ const TopHeadlines = () => {
       });
   };
 
-  useEffect(() => getNewsFromAPI(), []);
+  useEffect(() => {
+    getNewsFromAPI();
+  }, []);
   return gridView ? <NewsGrid news={getNews} /> : <NewsList news={getNews} />;
 };
 

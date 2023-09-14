@@ -20,6 +20,7 @@ import {
   toggleCardsView,
   toggleTheme,
 } from '../features/theme/themeSlice';
+import { Typography } from '@mui/material';
 
 const Header = () => {
   // Set the card view
@@ -57,8 +58,11 @@ const Header = () => {
           }}
         >
           {/* --------- Logo ---------- */}
-          <Box>
-            <img src={NewsLogo} height='60px' width='60px' />
+          <Box
+            sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+          >
+            <img src={NewsLogo} height='60px' width='60px' alt='logo' />
+            <Typography>COFFEE NEWS</Typography>
           </Box>
           <Box></Box>
 

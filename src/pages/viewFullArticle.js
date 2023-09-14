@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import CardMedia from '@mui/material/CardMedia';
 import styled from '@emotion/styled';
@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { selectArticleDetails } from '../features/articles/articleDetailsSlice';
 import FormatDate from '../utilities/formatDate';
 import Noimage from '../assets/images/No-Image.jpg';
@@ -20,7 +21,6 @@ import {
   collection,
   addDoc,
   deleteDoc,
-  doc,
   getDocs,
   query,
   where,
@@ -78,7 +78,6 @@ const ArticleDate = styled(Typography)(({ theme }) => ({
 const ArticleDetails = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
   ...theme.typography.subtitle2,
-  color: theme.palette.text.secondary,
   marginLeft: theme.spacing(2),
   width: 'fit-content',
   fontWeight: 'bold',
@@ -86,6 +85,7 @@ const ArticleDetails = styled(Typography)(({ theme }) => ({
 
 const ViewFullArticle = () => {
   const { title } = useParams();
+  const navigate = useNavigate();
 
   // Pass the 'title' parameter to the useSelector function
   const article = useSelector((state) => selectArticleDetails(state, title));
@@ -140,6 +140,15 @@ const ViewFullArticle = () => {
   return (
     <Container maxWidth='xxl'>
       <Item>
+        <Box sx={{ margin: '5px' }}>
+          <Button
+            onClick={() => navigate(-1)}
+            variant='text'
+            startIcon={<ArrowBackIcon />}
+          >
+            BACK
+          </Button>
+        </Box>
         {/* ------------- Image ----------- */}
         <NewsImage
           component='img'

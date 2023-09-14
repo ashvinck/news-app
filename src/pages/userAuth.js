@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import EarthBg from '../assets/images/earth-bgp.webp';
 import Form from '../components/form';
@@ -47,8 +48,15 @@ const UserAuth = () => {
           }}
         >
           <StyledBox>
-            <Box>
-              <img src={Logo} height='70px' width='70px' />
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Typography variant='h6'>Welcome to Coffee News</Typography>
+              <img src={Logo} height='90px' width='90px' alt='logo' />
             </Box>
             <Form />
           </StyledBox>
