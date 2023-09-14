@@ -86,3 +86,10 @@ Create a pull request.
 
 ## License
 This project is licensed under the MIT License.
+
+## Preview 
+
+![Login](login.png)
+![column view](column.png)
+![grid view](grid.png)
+![mob view](mob.png)
