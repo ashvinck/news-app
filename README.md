@@ -1,4 +1,4 @@
-# React News App
+#  News App
 
 **Description:** This is a React-based web app that allows users to access and personalize news articles. It integrates Firebase for user authentication, an open-source news API for fetching articles, and provides features like grid view, news detail view, favoriting articles, state management using Redux, offline support, and responsive UI/UX design.
 
