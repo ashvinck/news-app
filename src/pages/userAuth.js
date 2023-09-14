@@ -1,11 +1,10 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import React from 'react';
 import EarthBg from '../assets/images/earth-bgp.webp';
 import Form from '../components/form';
 import Logo from '../assets/images/news-Logo.webp';
-import { Typography } from '@mui/material';
 
 const BackGroundPaper = styled(Paper)(({ theme }) => ({
   backgroundImage: `url(${EarthBg})`,

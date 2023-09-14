@@ -1,9 +1,8 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Header from './header';
 import TopHeadlines from '../pages/top-headlines';
 import ViewFullArticle from '../pages/viewFullArticle';
-import { Route, Routes } from 'react-router-dom';
-import UserAuth from '../pages/userAuth';
 
 const Layout = () => {
   return (

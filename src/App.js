@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import './App.css';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Paper from '@mui/material/Paper';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Layout from './components/layout';
 import CssBaseline from '@mui/material/CssBaseline';
-import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
+import Layout from './components/layout';
 import { login, logout, selectUser } from './features/users/userSlice';
 import { selectTheme } from './features/theme/themeSlice';
-import { Route, Routes, Navigate } from 'react-router-dom';
 import UserAuth from './pages/userAuth';
 import { auth } from './config/firebase/firebase';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import NewsCardList from './newsCardList';
-import NewsCardGrid from './newsCardGrid';
 
 const NewsList = ({ news }) => {
   // Retrieving articles to populate cards

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import NewsList from '../components/newsList';
-import axiosInstance from '../config/api/axiosInstance';
-import NewsGrid from '../components/newsGrid';
 import { useSelector } from 'react-redux';
+import axiosInstance from '../config/api/axiosInstance';
 import { selectToggleCardsView } from '../features/theme/themeSlice';
+import NewsList from '../components/newsList';
+import NewsGrid from '../components/newsGrid';
 
 const TopHeadlines = () => {
   const [getNews, setGetNews] = useState([]);

@@ -1,34 +1,31 @@
 import React, { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import Hidden from '@mui/material/Hidden';
 import Button from '@mui/material/Button';
-import SearchBar from './searchBar';
 import IconButton from '@mui/material/IconButton';
-import FeedIcon from '@mui/icons-material/Feed';
+import LogoutIcon from '@mui/icons-material/Logout';
 import GridViewIcon from '@mui/icons-material/GridView';
-import PublicIcon from '@mui/icons-material/Public';
-import NewsLogo from '../assets/images/news-Logo.webp';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import { useDispatch, useSelector } from 'react-redux';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import { auth } from '../config/firebase/firebase';
+import NewsLogo from '../assets/images/news-Logo.webp';
 import {
   selectTheme,
   toggleCardsView,
   toggleTheme,
 } from '../features/theme/themeSlice';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import { auth } from '../config/firebase/firebase';
 
 const Header = () => {
+  // Set the card view
   const [gridView, setGridView] = useState(false);
 
+  // handle Click for card
   const handleCardsView = () => {
     setGridView(!gridView);
     dispatch(toggleCardsView(gridView));
@@ -65,30 +62,10 @@ const Header = () => {
           </Box>
           <Box></Box>
 
-          {/* ---------- Search ---------- */}
-          <Box>
-            <Hidden mdDown>
-              <Button variant='inherit'>Top Headlines</Button>
-              <Button variant='inherit'>Favorites</Button>
-              {/* <Button variant='inherit'>Country</Button> */}
-            </Hidden>
-
-            <Hidden mdUp>
-              <IconButton size='large' edge='start'>
-                <FeedIcon />
-              </IconButton>
-              <IconButton size='large'>
-                <FavoriteBorderIcon />
-              </IconButton>
-              {/* <IconButton size='large'>
-                <TravelExploreIcon />
-              </IconButton> */}
-            </Hidden>
-          </Box>
-
           {/* --------- NavLinks ---------- */}
           <Box>
             <Hidden mdDown>
+              {/* --------- Dark Mode ------------ */}
               <Button
                 variant='inherit'
                 startIcon={darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
@@ -96,6 +73,7 @@ const Header = () => {
               >
                 {!darkMode ? 'dark' : 'light'} MODE
               </Button>
+              {/* -------------- List/Grid View ------------- */}
               <Button
                 variant='inherit'
                 startIcon={gridView ? <GridViewIcon /> : <ViewListIcon />}
@@ -103,17 +81,19 @@ const Header = () => {
               >
                 {!gridView ? 'GRID' : 'LIST'} VIEW
               </Button>
+              {/* --------------- Logout ------------- */}
               <Button
                 variant='inherit'
-                startIcon={<AccountBoxIcon />}
+                startIcon={<LogoutIcon />}
                 onClick={() => {
                   auth.signOut();
                 }}
               >
-                ACCOUNT
+                LOGOUT
               </Button>
             </Hidden>
 
+            {/* -------- small screen Icon Buttons */}
             <Hidden mdUp>
               <ThemeToggle darkMode={darkMode} onToggle={handleThemeToggle} />
               <IconButton size='large' onClick={handleCardsView}>
@@ -126,7 +106,7 @@ const Header = () => {
                   auth.signOut();
                 }}
               >
-                <AccountBoxIcon />
+                <LogoutIcon />
               </IconButton>
             </Hidden>
           </Box>

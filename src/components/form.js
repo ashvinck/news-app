@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth, provider } from '../config/firebase/firebase';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
@@ -14,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import GoogleIcon from '@mui/icons-material/Google';
+import { auth, provider } from '../config/firebase/firebase';
 
 // News Article Image
 const TextInput = styled(TextField)(() => ({

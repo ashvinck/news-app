@@ -15,7 +15,8 @@ const articleDetailsSlice = createSlice({
   },
 });
 
-export const { setArticleDetails } = articleDetailsSlice.actions;
+export const { setArticleDetails, addToFavourites, removeFromFavourites } =
+  articleDetailsSlice.actions;
 
 // Selector to retrieve article details based on the title parameter
 export const selectArticleDetails = (state, title) => state.article[title];
